@@ -4,9 +4,10 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { APP_GUARD } from '@nestjs/core';
 // import { JwtAuthGuard } from '../jwt/jwtAuth.guard';
-import { JwsStrategy } from '../jwt/jwt.strategy';
+import { JwsStrategy } from '../jwt/localStrategy/jwt.strategy';
 import { falseBdd } from '../falseBdd';
 import { environments } from 'src/environments/environments';
+import { LocalStrategy } from '../jwt/localStrategy/local.strategy';
 
 @Module({
   exports: [AuthService, falseBdd,],
@@ -14,6 +15,7 @@ import { environments } from 'src/environments/environments';
     AuthService,
     JwsStrategy,
     falseBdd,
+    LocalStrategy,
     // {
     //   provide: APP_GUARD,
     //   useClass: JwtAuthGuard,
