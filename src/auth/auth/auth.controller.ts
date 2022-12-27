@@ -10,7 +10,7 @@ export class AuthController {
 
     @UseGuards(LocalAuthGuard)
     @Post('auth/login')
-    async infoLogin(@Request() req){
+    async infoLogin(@Request() req: any){
         console.log("je suis req post" + req )
         return this.authService.login(req.user);
     }
@@ -25,7 +25,7 @@ export class AuthController {
 
     @UseGuards(JwtAuthGuard)
     @Get('profile')
-    getProfile(@Request() req){
+    getProfile(@Request() req: any){
         console.log( "Je suis le Get" + req.user)
         return req.user;
     }

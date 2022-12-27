@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Inject, Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
@@ -28,6 +28,7 @@ import { LocalStrategy } from '../jwt/localStrategy/local.strategy';
       secret: environments.jwtConstantsSecretKey.secret,
       // signOptions: { expiresIn: '60s' },
     }),
+    
   ],
 })
 export class AuthModule { }
